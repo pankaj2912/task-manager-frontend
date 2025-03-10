@@ -1,8 +1,9 @@
-const API_URL = `${import.meta.env.BaseUrl || 'http://localhost:8000'}/api/tasks`; 
+const API_URL = `${import.meta.env.VITE_BaseUrl || 'http://localhost:8000'}/api/tasks`; 
 
 // Fetch all tasks from the backend
 const getAllTasks = async () => {
   try {
+    console.log('API_URL',API_URL)
     const response = await fetch(API_URL);
     if (!response.ok) throw new Error("Failed to fetch tasks");
     return await response.json();
